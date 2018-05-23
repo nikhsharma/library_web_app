@@ -1,9 +1,11 @@
 package models;
 
-import java.awt.print.Book;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
+@Table(name = "borrowers")
 public class Borrower {
     private int id;
     private String name;
@@ -14,6 +16,12 @@ public class Borrower {
         this.books =  new ArrayList<Book>();
     }
 
+    public Borrower() {
+    }
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     public int getId() {
         return id;
     }
@@ -22,6 +30,7 @@ public class Borrower {
         this.id = id;
     }
 
+    @Column(name = "name")
     public String getName() {
         return name;
     }
@@ -30,6 +39,7 @@ public class Borrower {
         this.name = name;
     }
 
+    @OneToMany(mappedBy = "borrower")
     public List<Book> getBooks() {
         return books;
     }
