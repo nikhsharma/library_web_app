@@ -48,4 +48,16 @@ public class Library {
     public void setBooks(Set<Book> books) {
         this.books = books;
     }
+
+    public void lendBook(Book book) {
+        this.books.remove(book);
+    }
+
+    public void receiveBook(Book book) {
+        this.books.add(book);
+    }
+
+    public int bookCount() {
+        return books.size();
+    }
 }
