@@ -47,4 +47,12 @@ public class Borrower {
     public void setBooks(List<Book> books) {
         this.books = books;
     }
+
+    public int bookCount() {
+        return books.size();
+    }
+
+    public void borrowBook(Book book) {
+        this.books.add(book);
+    }
 }
