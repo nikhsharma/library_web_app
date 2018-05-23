@@ -52,11 +52,13 @@ public class Borrower {
         return books.size();
     }
 
-    public void borrowBook(Book book) {
+    public void borrowBook(Book book, Library library) {
         this.books.add(book);
+        library.lendBook(book);
     }
 
-//    public void returnBook() {
-//
-//    }
+    public void returnBook(Book book, Library library) {
+        this.books.remove(book);
+        library.receiveBook(book);
+    }
 }
