@@ -10,11 +10,13 @@ public class Book {
     private String author;
     private Borrower borrower;
     private int id;
+    private Library library;
 
     public Book() {
     }
 
-    public Book(String title, String author) {
+    public Book(String title, String author, Library library) {
+        this.library = library;
         this.title = title;
         this.author = author;
     }
@@ -56,5 +58,13 @@ public class Book {
         this.id = id;
     }
 
+    @ManyToOne
+    @JoinColumn(name="library_id", nullable = false)
+    public Library getLibrary() {
+        return library;
+    }
 
+    public void setLibrary(Library library) {
+        this.library = library;
+    }
 }

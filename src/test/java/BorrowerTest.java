@@ -1,5 +1,6 @@
 import models.Book;
 import models.Borrower;
+import models.Library;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -9,11 +10,13 @@ public class BorrowerTest {
 
     private Borrower borrower;
     private Book book;
+    private Library library1;
 
     @Before
     public void before() throws Exception {
+        library1 = new Library("The Grand Library");
         borrower = new Borrower("Bob");
-        book = new Book("Book", "Mr. Book");
+        book = new Book("Book", "Mr. Book", library1);
     }
 
     @Test
